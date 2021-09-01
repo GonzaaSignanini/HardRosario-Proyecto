@@ -4,6 +4,7 @@
     align-items: center;
     height: 65px;
     background-color: rgb(37, 235, 37);
+    margin-top: -0.5%;
 }
 
 li{
@@ -24,5 +25,18 @@ a:hover{
 
 nav{
     width: 100%;
-    margin-top: -25%;
+    height: auto;
+    margin-top: -2%;
 }
+
+.logo{
+    height: 200px;
+    margin-left: 6.5%;
+    margin-top: -0.7%;
+}
+
+.divLogo{
+    height: 130px;
+    display: flex;
+}
+

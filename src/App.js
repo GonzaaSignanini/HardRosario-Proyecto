@@ -1,7 +1,6 @@
-import logo from './logo.svg';
 import './App.css';
-import './components/navbar/NavBar'
-import NavBar from './components/navbar/NavBar';
+import NavBar from './components/NavBar/NavBar';
+import Table from './components/Catalog/ItemListContainer';
 
 const App = () => {
 
@@ -10,9 +9,11 @@ const App = () => {
     
     <div className="App">
       <header className="App-header">
-        <NavBar></NavBar>
-        <img src={logo} className="App-logo" alt="logo" />
+        <NavBar />
       </header>
+      <div className="catalogo">
+          <Table />
+      </div>
     </div>
   );
 }
