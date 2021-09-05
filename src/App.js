@@ -1,6 +1,7 @@
 import './App.css';
 import NavBar from './components/NavBar/NavBar';
-import Table from './components/Catalog/ItemListContainer';
+import ItemListContainer from './components/Catalog/ItemListContainer';
+import ItemCount from './components/Count/ItemCount';
 
 const App = () => {
 
@@ -12,7 +13,9 @@ const App = () => {
         <NavBar />
       </header>
       <div className="catalogo">
-          <Table />
+          <ItemListContainer greeting="Bienvenidos a Hard Rosario! La mejor tienda de HardWare de PC de la provincia de Santa Fe."/>
+
+          <ItemCount />
       </div>
     </div>
   );

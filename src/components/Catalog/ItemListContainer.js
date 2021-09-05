@@ -1,7 +1,7 @@
 import './Table.css'
 
 
-const Table = () => {
+const ItemListContainer = () => {
 
     return (
 
@@ -59,4 +59,4 @@ const Table = () => {
     )
 }
 
-export default Table
+export default ItemListContainer
