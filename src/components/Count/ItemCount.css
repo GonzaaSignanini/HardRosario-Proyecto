@@ -8,10 +8,7 @@
 
 .divButtons{
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    width: 13%;
-    justify-content: space-evenly;
+    justify-content: center;
 }
 
 
@@ -26,13 +23,12 @@
 }
 
 .btnSend{
-    width: 10%;
+    width: 200px;
     padding: 10px;
     color: white;
     font-weight: 800;
     background-color: rgb(37, 235, 37);
-    align-self: flex-start;
-    margin-left: 1.5%;
+    align-self: center;
 }
 
 .btnResta{
@@ -43,6 +39,7 @@
     font-size: 65px;
     width: 41.2px;
     margin-bottom: 4%;
+    padding-right: 8%;
 }
 
 .btnSuma{
@@ -51,6 +48,8 @@
     font-weight: bold;
     font-size: 50px;
     background: transparent;
+    margin-bottom: 1.7%;
+    padding-left: 3%;
 }
 
 .btnResta:hover{

@@ -6,7 +6,6 @@ const ItemCount = () => {
 
     const miStock = 25;
     const [count, setCount] = useState(1);
-    let h1 = document.querySelector('h1.number');
 
     const miFuncRestar = () => {
         if(count <= 1){
@@ -15,7 +14,7 @@ const ItemCount = () => {
         }
     }
     const miFuncSumar = () => {
-        if(count >= miStock){
+        if(count >= 12){
         }else{
             setCount(count + 1)
         }
@@ -31,11 +30,9 @@ const ItemCount = () => {
     return(
 
         <div className="cardCount">
-            <p className="titleItem">Procesador Ryzen 5 3600X</p>
-            <p className="titleStock">Stock: {miStock} unidades.</p>
             <div className="divButtons">
                 <button className="btnResta" onClick={miFuncRestar}>-</button>
-                <h1>{count}</h1>
+                <h1 className="numberCount">{count}</h1>
                 <button className="btnSuma" onClick={miFuncSumar}>+</button>
             </div>
             <button className="btnSend" onClick={reset}>Añadir al Carrito</button>
