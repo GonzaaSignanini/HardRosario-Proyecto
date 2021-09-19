@@ -7,11 +7,7 @@
     margin-top: 1.9%;
 }
 
-i{
-    font-size: 22px;
-    justify-self: flex-end;
-    margin-left: 2%;
-}
+
 
 .filtro{
     height:45px;
@@ -31,4 +27,11 @@ i{
 
 .number{
     margin-left: 1%;
+}
+
+.cart{
+    display: flex;
+    justify-content: space-evenly;
+    width: 80px;
+    align-items: center;
 }

@@ -2,21 +2,20 @@ import React, {useState} from 'react';
 import './ItemCount.css'
 
 
-const ItemCount = () => {
+const ItemCount = ({stock, setCartItem}) => {
 
-    const miStock = 25;
-    const [count, setCount] = useState(1);
+    
+    const [count, setCount] = useState(0);
 
     const miFuncRestar = () => {
-        if(count <= 1){
-        }else{
-            setCount(count - 1)
+        if(count === 0){
+            return setCount(count - 1)
         }
     }
+
     const miFuncSumar = () => {
-        if(count >= 12){
-        }else{
-            setCount(count + 1)
+        if(count === stock){
+            return setCount(count + 1)
         }
     }
 

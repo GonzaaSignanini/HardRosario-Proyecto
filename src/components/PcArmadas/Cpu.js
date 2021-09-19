@@ -1,11 +1,10 @@
-import './Item.css'
 import { useState } from "react";
-import {Link} from 'react-router-dom'
+import { Link } from "react-router-dom";
+import './style.css'
 
 
-const Item = ({product}) => {
 
-    
+const Cpu = ({product}) => {
 
     const [count, setCount] = useState(0);
 
@@ -35,18 +34,17 @@ const Item = ({product}) => {
         }
     }
 
-    if(product === undefined){
-        return <h3>{`No existe el producto ${product}`}</h3>
-    }
+    
 
     return(
 
         <div className="card card-body">
-            <Link to={`/producto/${product.id}`}><img className="card-img-top imgProduct" src={product?.pictureUrl} alt={product?.alt}/></Link>
+            <Link to={`/combo-gamer/${product.id}`}><img className="card-img-top imgProduct" src={product?.pictureUrl} alt={product?.alt}/></Link>
             
             <h1 className="card-title titleProduct">{product?.title}</h1>
             <p className="card-text priceProduct">${product?.price}</p>
             <p className="card-text stockProduct">Stock disponible: {product?.stock}</p>
+            <p className="descriptionProduct">{product.description}</p>
             <div className="divButtons">
                 <button className="btnResta" onClick={decrementar}>-</button>
                 <h1 className="numberCount">{count}</h1>
@@ -60,4 +58,4 @@ const Item = ({product}) => {
 }
 
 
-export default Item
+export default Cpu
