@@ -1,8 +1,8 @@
-import Item from '../Item/Item'
-import './ItemList.css'
+import ItemDetail from './ItemDetail'
+import '../ItemList/ItemList.css'
 import Spinner from '../Spinner/Spinner'
 
-const ItemList = ({products, setCartItem}) => {
+const DetailList = ({products, setCartItem}) => {
 
 
     return(
@@ -10,7 +10,7 @@ const ItemList = ({products, setCartItem}) => {
         <div className="product"> 
             {products ? 
             (
-                products?.map(product => <Item product={product} key={product.id} setCartItem={setCartItem}/>)
+                products?.map(product => <ItemDetail product={product} key={product.id} setCartItem={setCartItem}/>)
             ) : (
                 <div className="spin">
                     <Spinner />
@@ -21,4 +21,4 @@ const ItemList = ({products, setCartItem}) => {
     )
 }
 
-export default ItemList
+export default DetailList

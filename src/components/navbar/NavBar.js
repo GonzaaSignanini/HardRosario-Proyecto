@@ -2,17 +2,21 @@ import './NavBar.css'
 import logoH from '../../assets/HardLogo.png'
 import CartWidget from '../Button/CartWidget'
 import {Link} from 'react-router-dom'
+import { useContext } from 'react'
+import { UserContext } from '../../context/CartContext'
 
 
 
-const NavBar = () => {
+const NavBar = ({cartItem}) => {
+
+    const user = useContext(UserContext);
 
     return (
 
         <nav className="navMenu">
             <div className="divLogo">
                 <Link to={`/inicio`}/><img src={logoH} className="logo" alt="logo-tienda"/>
-                <CartWidget />
+                <CartWidget cartItem={cartItem} />
             </div>
             <ul className="lista">
                 <li className="lista__item" id="01"><Link to={`/inicio/01`}>Inicio</Link></li>

@@ -25,13 +25,18 @@
     width: 85px;
 }
 
-.number{
-    margin-left: 1%;
-}
-
 .cart{
     display: flex;
     justify-content: space-evenly;
     width: 80px;
     align-items: center;
 }
+
+.number {
+    margin-left: -15%;
+    background-color: lightgreen;
+    border-radius: 70%;
+    width: 20px;
+    height: 25px;
+}
+

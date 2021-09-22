@@ -2,6 +2,7 @@ import CpuList from './CpuList'
 import './style.css'
 import { useState, useEffect } from "react";
 import { useParams } from 'react-router'
+import Spinner from '../Spinner/Spinner'
 
 
 
@@ -50,12 +51,13 @@ const getProduct = (equipoId) => {
 const CpuListContainer = ({setCartItem}) => {
     
     const {equipoId} = useParams() 
-
+    const [Loader, setLoader] = useState(true);
     const [products, setProducts] = useState([]);
     useEffect(() => {
         const list = getProduct(equipoId);
         list.then(list => {
             setProducts(list)
+            setLoader(false)
         })
         setProducts()
     }, [equipoId])
@@ -63,7 +65,9 @@ const CpuListContainer = ({setCartItem}) => {
     return (
 
         <div className="List">
-            <CpuList products={products} setCartItem={setCartItem}/>
+            <div className="spinner">
+                {Loader === true ? <Spinner/> : <CpuList  products={products} setCartItem={setCartItem}/>}
+            </div>
         </div>
 
     )

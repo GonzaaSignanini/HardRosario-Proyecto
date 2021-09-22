@@ -8,12 +8,7 @@ const CpuList = ({products, setCartItem}) => {
     return(
 
         <div className="product">
-            {products ? 
-            (
-                products?.map(product => <Cpu product={product} key={product.id} setCartItem={setCartItem}/>)
-            ) : (
-                <div>LOADING</div>
-            )}
+            {products?.map(product => <Cpu product={product} key={product.id} setCartItem={setCartItem}/>)}
         </div>
     )
 }

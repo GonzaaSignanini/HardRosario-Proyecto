@@ -2,39 +2,47 @@ import React, {useState} from 'react';
 import './ItemCount.css'
 
 
-const ItemCount = ({stock, setCartItem}) => {
+const ItemCount = ({product, setCartItem}) => {
+        
+    const [quantity, setQuantity] = useState(0);
 
-    
-    const [count, setCount] = useState(0);
-
-    const miFuncRestar = () => {
-        if(count === 0){
-            return setCount(count - 1)
+    const aumentar = () => {
+        if (quantity >= product.stock){
+            console.log('ya no sumo mas')
+         }
+         else {
+            setQuantity(quantity + 1);
+         }
+        
+    }
+    const decrementar = () => {
+        if (quantity <= 0){
+            console.log('no hago nada')
         }
+         else{
+            setQuantity(quantity - 1);
+         }
+      
     }
 
-    const miFuncSumar = () => {
-        if(count === stock){
-            return setCount(count + 1)
-        }
+    const onAdd = () => {
+        setCartItem(quantity)
     }
 
-    const reset = () => {
-        if(count <= 1){      
-        }else{
-            setCount(count - (count- 1))
-        }
+    if(product === undefined){
+        return <h3>{`No existe el producto ${product}`}</h3>
     }
     
     return(
 
         <div className="cardCount">
-            <div className="divButtons">
-                <button className="btnResta" onClick={miFuncRestar}>-</button>
-                <h1 className="numberCount">{count}</h1>
-                <button className="btnSuma" onClick={miFuncSumar}>+</button>
+           <div className="divButtons">
+                <button className="btnResta" onClick={decrementar}>-</button>
+                <h1 className="numberCount">{quantity}</h1>
+                <button className="btnSuma" onClick={aumentar}>+</button>
             </div>
-            <button className="btnSend" onClick={reset}>Añadir al Carrito</button>
+            <p className="textStock">{quantity >= product.stock ? 'Stock Máximo!!' : ''}</p>
+            <button className="btnSend" onClick={onAdd}>Añadir al Carrito</button>
         </div>
         
     )

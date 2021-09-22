@@ -2,3 +2,9 @@
     display: flex;
     flex-wrap: wrap;
 }
+
+.spin{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}

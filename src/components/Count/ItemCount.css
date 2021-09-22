@@ -66,3 +66,18 @@
     background-color: rgb(29, 134, 29);
     cursor: pointer;
 }
+
+.btnDetalle{
+    width: 200px;
+    padding: 10px;
+    color: white;
+    font-weight: 800;
+    background-color: rgb(37, 235, 37);
+    align-self: center;
+    margin-top: 2%;
+}
+
+.btnDetalle:hover{
+    background-color: rgb(29, 134, 29);
+    cursor: pointer;
+}
