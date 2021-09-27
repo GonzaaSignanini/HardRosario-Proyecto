@@ -7,9 +7,9 @@ import Spinner from '../Spinner/Spinner'
 
 
 
-const products = [
+export const products = [
     {
-        id: "01",
+        id: "1",
         pictureUrl: 'https://static.wixstatic.com/media/6b8588_a28afd1b39d04d08b6c4bb16610bb4b3~mv2.png/v1/fill/w_446,h_446,al_c,q_85,usm_0.66_1.00_0.01/1.webp',
         alt: "Cpu Armada 1",
         title: "Combo PC Gamer #1",
@@ -19,7 +19,7 @@ const products = [
     },
 
     {
-        id: "02",
+        id: "2",
         pictureUrl: 'https://www.mgtecnologia.com.ar/thumb/PC-I5-10400F-RX-570-4GB1620083991561_400x400.jpg',
         alt: "Cpu Armada 2",
         title: "Combo PC Gamer #2",
@@ -29,7 +29,7 @@ const products = [
     },
 
     {
-        id: "03",
+        id: "3",
         pictureUrl: 'https://http2.mlstatic.com/D_NQ_NP_990520-MLA43959393680_102020-W.jpg',
         alt: "Cpu Armada 3",
         title: "Combo PC Gamer #3",
@@ -39,11 +39,9 @@ const products = [
     },
 ]
 
-const getProduct = (equipoId) => {
+const getProduct = () => {
     return new Promise((resolve, reject) =>{
-        if(!equipoId) setTimeout(() => resolve(products), 2000)
-        const product = products.filter(prod =>prod.id === equipoId)
-        setTimeout(() => resolve(product), 2000)
+        setTimeout(() => resolve(products), 2000)
     })
 }
 
@@ -59,7 +57,10 @@ const CpuListContainer = ({setCartItem}) => {
             setProducts(list)
             setLoader(false)
         })
-        setProducts()
+        return( () => {
+            setProducts([])
+            setLoader(true)
+        })
     }, [equipoId])
 
     return (

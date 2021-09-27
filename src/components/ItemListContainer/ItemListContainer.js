@@ -37,7 +37,7 @@ export const products = [
 
 const getProduct = () => {
     return new Promise((resolve, reject) =>{
-         setTimeout(() => resolve(products), 2000)
+        setTimeout(() => resolve(products), 2000)
     })
 }
 
@@ -47,7 +47,7 @@ const getProduct = () => {
 const ItemListContainer = ({setCartItem}) => {
 
     const {catId} = useParams() 
-    const [Loader, setLoader] = useState(true);
+    const [loader, setLoader] = useState(true);
     const [products, setProducts] = useState([]);
     useEffect(() => {
         const list = getProduct(catId);
@@ -55,15 +55,17 @@ const ItemListContainer = ({setCartItem}) => {
             setProducts(list)
             setLoader(false)
         })
-        setProducts()
-        
+        return( () => {
+            setProducts([])
+            setLoader(true)
+        })      
     }, [catId])
 
     return (
 
         <div className="List">
             <div className="spinner">
-                {Loader === true ? <Spinner/> : <ItemList  products={products} setCartItem={setCartItem}/>}
+                {loader === true ? <Spinner/> : <ItemList  products={products} setCartItem={setCartItem}/>}
             </div>
         </div>
         

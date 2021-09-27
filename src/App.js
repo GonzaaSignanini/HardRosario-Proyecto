@@ -3,10 +3,11 @@ import NavBar from './components/NavBar/NavBar';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import { BrowserRouter, Switch, Route} from 'react-router-dom';
 import CpuListContainer from './components/PcArmadas/CpuListContainer';
-import { UserContext } from './context/CartContext';
 import { useState } from 'react';
 import ItemDetailContainer from './components/ItemDetail/ItemDetailContainer';
 import CartView from './components/Cart/Cart';
+import CpuDetailContainer from './components/PcDetail/CpuDetailContainer';
+import { CartContextProvider } from './context/CartContext';
 
 
 const App = ({product}) => {
@@ -16,7 +17,7 @@ const App = ({product}) => {
   return (
     
     <div className="App">
-      <UserContext.Provider value={'gonzalo'}>
+    <CartContextProvider>
       <BrowserRouter>
         <header className="App-header">
           <NavBar products={product} cartItem={cartItem}/>
@@ -29,13 +30,13 @@ const App = ({product}) => {
             <ItemListContainer />
           </Route>
           <Route exact path="/producto/:itemId">
-            <ItemDetailContainer setCartItem={setCartItem}/>
+            <ItemDetailContainer />
           </Route>
-          <Route path="/equipos-armados/">
+          <Route path="/equipos-armados/:equipoId">
             <CpuListContainer />
           </Route>
-          <Route path="/combo-gamer/:equipoId">
-            <CpuListContainer />
+          <Route path="/combo-gamer/:itemEquipId">
+            <CpuDetailContainer setCartItem={setCartItem}/>
           </Route>
           <Route path="/contacto/:id">
             Aca va form de contacto
@@ -50,10 +51,9 @@ const App = ({product}) => {
         <div style={{height: "200px"}}>
 
         </div>
-        
-
       </BrowserRouter>
-      </UserContext.Provider>
+      </CartContextProvider>
+
     </div>
   );
 }
