@@ -41,7 +41,7 @@ const ItemDetail = ({products}) => {
         <div className="card card-body">
             <img className="card-img-top imgProduct" src={products?.pictureUrl} alt={products?.alt}/>
             <h1 className="card-title titleProduct">{products?.title}</h1>
-            <p className="card-text priceProduct">${products?.price}</p>
+            <p className="card-text priceProduct">$ {products?.price}</p>
             <p className="card-text stockProduct">Stock disponible: {products?.stock}</p>
             {cart ? (
               <ItemCount

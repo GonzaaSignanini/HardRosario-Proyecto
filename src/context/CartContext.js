@@ -12,6 +12,11 @@ export const CartContextProvider = ({children}) => {
         setProductsCart(newList);
     };
 
+    const removePrice = (itemPrice) => {
+        const newList = productsCart.filter((item) => item.price !== itemPrice);
+        setProductsCart(newList);
+    };
+
     const changeQuantity = (count) => {
         setQuantity(count);
     };
@@ -35,7 +40,8 @@ export const CartContextProvider = ({children}) => {
             quantity,
             removeItem,
             setProductsCart,
-          }}>
+            removePrice
+        }}>
             
             {children}
         </CartContext.Provider>

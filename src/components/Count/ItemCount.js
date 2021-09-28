@@ -1,9 +1,9 @@
 import React, {useState, useContext} from 'react';
 import './ItemCount.css'
 import { CartContext } from "../../context/CartContext";
+import { Button } from '@material-ui/core'
 
-
-const ItemCount = ({products, initial, onAdd, setItemCount, item}) => {
+const ItemCount = ({initial, onAdd, setItemCount, item}) => {
 
     const [count, setCount] = useState(initial);
     const { quantity, changeQuantity, addItem, productsCart, setProductsCart } =
@@ -13,14 +13,14 @@ const ItemCount = ({products, initial, onAdd, setItemCount, item}) => {
     
     const aumentar = () => {
         if (count < item.stock){
-            setCount(count + 1);
-            changeQuantity(quantity + 1);
+          setCount(count + 1);
+          changeQuantity(quantity + 1);
         }
     }
     const decrementar = () => {
         if (count > 0){
-            setCount(count - 1);
-            changeQuantity(quantity - 1);
+          setCount(count - 1);
+          changeQuantity(quantity - 1);
         }
     }
 
@@ -59,12 +59,12 @@ const ItemCount = ({products, initial, onAdd, setItemCount, item}) => {
 
         <div className="cardCount">
            <div className="divButtons">
-                <button className="btnResta" onClick={decrementar}>-</button>
+                <Button type="button" size="large" color="secondary" style={{'font-size':'47px', 'height':'50px', 'align-self':'center','margin-right':'3%', 'width':'30px', 'align-items':'center'}}variant="contained"onClick={decrementar}>-</Button>
                 <h1 className="numberCount">{count}</h1>
-                <button className="btnSuma" onClick={aumentar}>+</button>
+                <Button color="secondary" style={{'font-size':'34px', 'justify-self':'flex-end', 'height':'50px', 'width':'30px', 'align-self':'center','margin-left':'3%'}} variant="contained" onClick={aumentar}>+</Button>
             </div>
-            <p className="textStock">{count >= item.stock ? 'Stock Máximo!!' : ''}</p>
-            <button className="btnSend" onClick={handleOnClick}>Añadir al Carrito</button>
+            <p className="textStock" style={{'margin-top':'-0.1%', 'font-size':'20px'}}>{count >= item.stock ? 'Stock Máximo!!' : ''}</p>
+            <Button type="button" variant="contained" size="large" style={{'width':'250px', 'align-self':'center'}} color="secondary" onClick={handleOnClick}>Añadir al Carrito</Button>
         </div>
         
     )

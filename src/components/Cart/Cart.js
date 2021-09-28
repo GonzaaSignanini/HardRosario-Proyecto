@@ -1,7 +1,5 @@
 import { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import  {CartContext}  from '../../context/CartContext';
 import { Container, Typography, Button, Grid } from "@material-ui/core";
 import CartItem from './CartItem';
@@ -26,11 +24,10 @@ const CartView = () => {
           </Grid>
           <div className="cardDetails" style={{"margin-top":"3%"}}>
             <Typography variant="h4">
-              Total: $ {cantidad} (en construcción 😬 )
+              Total: $ {cantidad} (en construcción 😬)
             </Typography>
             <div style={{'margin-top':'2%'}}>
               <Button
-                className="emptyButton"
                 size="large"
                 type="button"
                 variant="contained"
@@ -59,13 +56,14 @@ const CartView = () => {
     
     
       const EmptyCart = () => (
-        <Typography variant="subtitle1">
-          Tu carrito está vacío,   
-           <Link to="/" style={{'margin-left':'12px'}}>
-             agrega productos
+        <>
+          <Typography variant="subtitle1" style={{'font-size':'22px', 'display':'inline-flex', 'margin-top':'2%'}}>
+            No hay productos en el carrito
+          </Typography>   
+          <Link to="/" className="link" style={{'margin-left':'12px'}}>
+            <Button type="button" variant="contained" color="primary" style={{'margin-top':'-0.2%'}}>Comprar Productos</Button>
           </Link>
-          !
-        </Typography>
+        </>
       );
     
       return (

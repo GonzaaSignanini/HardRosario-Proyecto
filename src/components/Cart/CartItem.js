@@ -18,14 +18,15 @@ const CartItem = ({ item, setCantidad}) => {
 
   setCantidad(Number(item.price) * Number(item.quantity))
 
+
   return (
     <Card>
-        <img src={item.pictureUrl} style={{"width": "370px", "height":"230px"}}/>
+        <img src={item.pictureUrl} style={{"width": "370px", "height":"250px"}}/>
       <CardMedia
         image={item.pictureUrl}
         alt={item.title}
       />
-      <CardContent ntent className="cardContent">
+      <CardContent contained className="cardContent">
         <Typography variant="h4" style={{'font-size':'24px'}}>{item.title}</Typography>
         <Typography variant="h5" style={{'margin-top':'3%'}}> $
           {Number(item.price) * Number(item.quantity)}
@@ -33,11 +34,11 @@ const CartItem = ({ item, setCantidad}) => {
       </CardContent>
       <CardActions className="cardActions">
         <div className="buttons">
-          <Button type="button" size="small" onClick={() => setCantidadItem(Number(item.quantity) + 1)}>
+          <Button type="button" size="small" onClick={cantidadItem - 1}>
             -
           </Button>
           <Typography>{item.quantity}</Typography>
-          <Button type="button" size="small" onClick={() => setCantidadItem(Number(item.quantity) + 1)}>
+          <Button type="button" size="small" function={() => setCantidadItem(Number(item.quantity) + 1)}>
             +
             </Button>
         </div>
