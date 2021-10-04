@@ -1,20 +1,22 @@
 import './Item.css'
 import {Link} from 'react-router-dom'
 import '../Count/ItemCount.css'
-import { Button } from '@material-ui/core'
+import { Button, Card, CardContent } from '@material-ui/core'
 
 
 const Item = ({product}) => {
 
     return(
-
-        <div className="card card-body">
+        
+        <div className="cardProducts card-body">
+            <Card className="cardItemsProd" contained>
             <img className="card-img-top imgProduct" src={product?.pictureUrl} alt={product?.alt}/>
             <h1 className="card-title titleProduct">{product?.title}</h1>
             <p className="card-text priceProduct">$ {product?.price}</p>
-            <Link to={`/producto/${product.id}`} className="link">
+            <Link to={`/producto/${product.category}/${product.id}`} className="link">
                 <Button size="large" variant="contained" color="secondary">Ver Detalle de Producto</Button>
             </Link>
+            </Card>
         </div>
 
     )

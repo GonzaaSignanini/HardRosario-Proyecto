@@ -6,7 +6,7 @@ import { Button } from '@material-ui/core'
 const ItemCount = ({initial, onAdd, setItemCount, item}) => {
 
     const [count, setCount] = useState(initial);
-    const { quantity, changeQuantity, addItem, productsCart, setProductsCart } =
+    const { quantity, changeQuantity, addItem, productsCart, setProductsCart, changeNavQuantity } =
     useContext(CartContext);
 
     setItemCount(count);
@@ -52,16 +52,17 @@ const ItemCount = ({initial, onAdd, setItemCount, item}) => {
     } 
     
       
-        onAdd();
-      };
+      onAdd();
+      changeNavQuantity(quantity)
+    };
 
     return(
 
         <div className="cardCount">
            <div className="divButtons">
-                <Button type="button" size="large" color="secondary" style={{'font-size':'47px', 'height':'50px', 'align-self':'center','margin-right':'3%', 'width':'30px', 'align-items':'center'}}variant="contained"onClick={decrementar}>-</Button>
+                <Button type="button" size="large" color="secondary" style={{'font-size':'47px', 'height':'50px', 'align-self':'center','margin-right':'7%', 'width':'30px', 'align-items':'center'}}variant="contained"onClick={decrementar}>-</Button>
                 <h1 className="numberCount">{count}</h1>
-                <Button color="secondary" style={{'font-size':'34px', 'justify-self':'flex-end', 'height':'50px', 'width':'30px', 'align-self':'center','margin-left':'3%'}} variant="contained" onClick={aumentar}>+</Button>
+                <Button color="secondary" style={{'font-size':'34px', 'justify-self':'flex-end', 'height':'50px', 'width':'30px', 'align-self':'center','margin-left':'7%'}} variant="contained" onClick={aumentar}>+</Button>
             </div>
             <p className="textStock" style={{'margin-top':'-0.1%', 'font-size':'20px'}}>{count >= item.stock ? 'Stock Máximo!!' : ''}</p>
             <Button type="button" variant="contained" size="large" style={{'width':'250px', 'align-self':'center'}} color="secondary" onClick={handleOnClick}>Añadir al Carrito</Button>

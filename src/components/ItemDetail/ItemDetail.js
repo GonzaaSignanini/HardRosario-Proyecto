@@ -1,14 +1,13 @@
-import '../Item/Item.css'
 import {Link} from 'react-router-dom'
 import ItemCount from '../Count/ItemCount';
-import { useState, useContext } from 'react';
-import  { CartContext }  from '../../context/CartContext';
+import { useState} from 'react';
 import {  Button } from "@material-ui/core";
 import './ItemCss.css'
+import {Card, CardContent} from '@material-ui/core'
+
 
 const ItemDetail = ({products}) => {
 
-    const { quantity, addItem, isInCart } = useContext(CartContext);
     const [cart, setCart] = useState(true);
     const [itemCount, setItemCount] = useState();
 
@@ -37,12 +36,12 @@ const ItemDetail = ({products}) => {
     };
 
     return(
-
-        <div className="card card-body">
-            <img className="card-img-top imgProduct" src={products?.pictureUrl} alt={products?.alt}/>
+        <Card className="cardd">
+          <CardContent className="cardd" > 
+            <img style={{'width':'auto', 'height':'270px'}} className="card-img-top imgProduct" src={products?.pictureUrl} alt={products?.alt}/>
             <h1 className="card-title titleProduct">{products?.title}</h1>
-            <p className="card-text priceProduct">$ {products?.price}</p>
-            <p className="card-text stockProduct">Stock disponible: {products?.stock}</p>
+            <p className="card-text priceDetail">$ {products?.price}</p>
+            <p  className="card-text stockProduct">Stock disponible: {products?.stock}</p>
             {cart ? (
               <ItemCount
                 stock={5}
@@ -54,8 +53,8 @@ const ItemDetail = ({products}) => {
             ) : (
               <FinalizarCompra />
             )}
-        </div>
-
+        </CardContent>
+        </Card>         
     )
 }
 

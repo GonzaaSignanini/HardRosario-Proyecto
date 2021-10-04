@@ -27,9 +27,9 @@ const App = ({product}) => {
             Aca van los sponsors.
           </Route>
           <Route path="/productos/:catId">
-            <ItemListContainer />
+            <ItemListContainer/>
           </Route>
-          <Route exact path="/producto/:itemId">
+          <Route exact path="/producto/:catId/:itemId">
             <ItemDetailContainer />
           </Route>
           <Route path="/equipos-armados/:equipoId">

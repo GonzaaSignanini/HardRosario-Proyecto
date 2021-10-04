@@ -5,19 +5,20 @@ import { CartContext }  from '../../context/CartContext';
 
 const CartWidget = () => {
 
-    const { quantity } = useContext(CartContext);
+    const { navQuantity } = useContext(CartContext);
+
 
     return(
 
         <div className="divCarrito">
             <input type="text" className="filtro" />
             <button type="submit" className="btn-submit">BUSCAR</button>
-            <div className="cart">
-                <Link to={`/cart`}>
-                    <i className="fas fa-shopping-cart"></i>
-                </Link>
-                <h1 className="number fas">{quantity}</h1>
-            </div>
+            {navQuantity > 0 && <div className="cart"> 
+            <Link to={`/cart`}>
+                <i className="fas fa-shopping-cart"></i>
+            </Link>
+            <h1 className="number fas">{navQuantity}</h1>
+            </div>}
         </div>
     )
 }

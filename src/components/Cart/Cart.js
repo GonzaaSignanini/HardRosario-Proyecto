@@ -6,9 +6,15 @@ import CartItem from './CartItem';
 
 const CartView = () => {
 
-    const {productsCart}  = useContext(CartContext);
-    const {clear}  = useContext(CartContext);
-    const [cantidad, setCantidad] = useState()
+    const { productsCart }  = useContext(CartContext);
+    const { clear }  = useContext(CartContext);
+    const [cantidad, setCantidad] = useState();
+
+    const totalPrice = productsCart.map(
+      (itemCart) => itemCart.price * itemCart.quantity
+    );
+  
+    let total = totalPrice.reduce((a, b) => a + b, 0);
 
     const FilledCart = () => (
         <>
@@ -24,7 +30,7 @@ const CartView = () => {
           </Grid>
           <div className="cardDetails" style={{"margin-top":"3%"}}>
             <Typography variant="h4">
-              Total: $ {cantidad} (en construcción 😬)
+              Total: $ {total}
             </Typography>
             <div style={{'margin-top':'2%'}}>
               <Button
@@ -60,7 +66,7 @@ const CartView = () => {
           <Typography variant="subtitle1" style={{'font-size':'22px', 'display':'inline-flex', 'margin-top':'2%'}}>
             No hay productos en el carrito
           </Typography>   
-          <Link to="/" className="link" style={{'margin-left':'12px'}}>
+          <Link to="/productos" className="link" style={{'margin-left':'12px'}}>
             <Button type="button" variant="contained" color="primary" style={{'margin-top':'-0.2%'}}>Comprar Productos</Button>
           </Link>
         </>
@@ -72,7 +78,7 @@ const CartView = () => {
         <Typography className="title" variant="h3" gutterBottom>
           Carrito de Compras
         </Typography>
-        {productsCart ? <FilledCart /> : <EmptyCart />  }
+        {productsCart <= 0  ? <EmptyCart /> : <FilledCart />  }
         
       </Container>
       )
