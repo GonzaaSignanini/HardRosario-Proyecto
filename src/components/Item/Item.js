@@ -1,7 +1,7 @@
 import './Item.css'
 import {Link} from 'react-router-dom'
 import '../Count/ItemCount.css'
-import { Button, Card, CardContent } from '@material-ui/core'
+import { Button, Card } from '@material-ui/core'
 
 
 const Item = ({product}) => {
@@ -9,7 +9,7 @@ const Item = ({product}) => {
     return(
         
         <div className="cardProducts card-body">
-            <Card className="cardItemsProd" contained>
+            <Card className="cardItemsProd">
             <img className="card-img-top imgProduct" src={product?.pictureUrl} alt={product?.alt}/>
             <h1 className="card-title titleProduct">{product?.title}</h1>
             <p className="card-text priceProduct">$ {product?.price}</p>

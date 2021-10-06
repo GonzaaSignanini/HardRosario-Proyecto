@@ -12,9 +12,7 @@ import {
 } from "@material-ui/core";
 
 
-const CartItem = ({ item, setCantidad}) => 
-{
-  const [cantidadItem, setCantidadItem] = useState(item.quantity)
+const CartItem = ({ item, setCantidad}) => {
 
   const {removeItem, changeNavQuantity, navQuantity, changeQuantity, quantity, productsCart} = useContext(CartContext)
 
@@ -41,20 +39,16 @@ const CartItem = ({ item, setCantidad}) =>
       </CardContent>
       <CardActions className="cardActions">
         <div className="buttons">
-          <Button type="button" size="small" onClick={cantidadItem - 1}>
-            -
-          </Button>
+          <Button type="button" size="small">-</Button>
           <Typography>{item.quantity}</Typography>
-          <Button type="button" size="small" function={() => setCantidadItem(Number(item.quantity) + 1)}>
-            +
-            </Button>
+          <Button type="button" size="small">+</Button>
         </div>
         <Button variant="contained" type="button" color="secondary" onClick={handleOnClick}>
           Remover
         </Button>
       </CardActions>
     </Card>
-  );
+  )
 };
 
 export default CartItem;

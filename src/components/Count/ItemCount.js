@@ -2,9 +2,10 @@ import React, {useState, useContext} from 'react';
 import './ItemCount.css'
 import { CartContext } from "../../context/CartContext";
 import { Button } from '@material-ui/core'
+import NotificationContext from '../../context/NotificationContext'
 
 const ItemCount = ({initial, onAdd, setItemCount, item}) => {
-
+    const { setNotification } = useContext(NotificationContext)
     const [count, setCount] = useState(initial);
     const { quantity, changeQuantity, addItem, productsCart, setProductsCart, changeNavQuantity } =
     useContext(CartContext);
@@ -41,19 +42,19 @@ const ItemCount = ({initial, onAdd, setItemCount, item}) => {
           }
       })
       setProductsCart(updateCart)
-      }  else{const newProduct = {
-        ...item,
-        quantity: count,
-      };
+      }  else{
+        const newProduct = {
+          ...item,
+          quantity: count,
+        };
     
-      productsCart
-        ? addItem([...productsCart, newProduct])
-        : addItem([newProduct]);
-    } 
+        productsCart ? addItem([...productsCart, newProduct]) : addItem([newProduct]);
+      } 
     
       
       onAdd();
       changeNavQuantity(quantity)
+      setNotification('success', `${item.title} ha sido agregado al carrito`)
     };
 
     return(
