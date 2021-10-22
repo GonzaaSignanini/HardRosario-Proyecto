@@ -3,19 +3,32 @@
     margin-left: 7px;
 }
 
+.cardd img {
+    width: auto;
+    height: 270px;
+}
+
 .cardd{
     padding: 2%;
-    height: 600px;
+    height: 650px;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    width: 370px;
+    width: 380px;
     padding-bottom: 44px;
     padding-top: 0px;
 }
 
+.cardCount {
+    margin-top: 5%;
+}
+
 .MuiPaper-root.MuiCard-root.cardd.MuiPaper-elevation1.MuiPaper-rounded{
+    margin-left: 3%;
+}
+
+.MuiPaper-root.MuiCard-root.cardEquipo.MuiPaper-elevation1.MuiPaper-rounded{
     margin-left: 3%;
 }
 
@@ -24,4 +37,22 @@
     width: 100%;
     text-align: end;
     margin-right: 2%;
+    margin-top: 4%;
+}
+
+.titleProduct {
+    margin-top: 20px;
+}
+
+
+.info {
+    line-height: 0.4;
+    padding: 50px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-left: -5px;
+}
+
+.stockProduct {
+    text-align: center;
+    margin-top: 20px;
 }

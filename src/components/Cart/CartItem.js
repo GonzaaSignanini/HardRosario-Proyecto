@@ -1,4 +1,4 @@
-import React, {useState, useContext} from "react";
+import React, {useContext} from "react";
 import { CartContext } from "../../context/CartContext"
 import './Cart.css'
 
@@ -12,40 +12,35 @@ import {
 } from "@material-ui/core";
 
 
-const CartItem = ({ item, setCantidad}) => {
+const CartItem = ({ item }) => {
 
-  const {removeItem, changeNavQuantity, navQuantity, changeQuantity, quantity, productsCart} = useContext(CartContext)
+  const { removeItem } = useContext(CartContext)
 
   const handleOnClick = () => {
-    removeItem(item.id);
-    changeQuantity(quantity - item.quantity);
-    changeNavQuantity(navQuantity - item.quantity);
+    removeItem(item.id);;
   };
-
-  setCantidad(Number(item.price) * Number(item.quantity))
-
 
   return (
     <Card className="cardItems">
-        <img src={item.pictureUrl} style={{"width": "auto", "height":"250px"}}/>
+        <img src={item.pictureUrl} style={{"width": "auto", "height":"220px"}} alt="Cart-Product"/>
       <CardMedia
         image={item.pictureUrl}
         alt={item.title}
       />
       <CardContent contained className="cardContent">
-        <Typography variant="h4" style={{'font-size':'24px'}}>{item.title}</Typography>
-        <Typography variant="h5" style={{'margin-top':'4%', 'font-size':'22px'}}>Precio Unitario: $ {Number(item.price)}
+        <Typography variant="h4" className="titleItem" style={{'font-size':'22px'}}>{item.title}</Typography>
+        <Typography variant="h5" className="priceItem" style={{'margin-top':'4%', 'font-size':'22px'}}>Precio Unitario: $ {Number(item.price)}
         </Typography>
       </CardContent>
       <CardActions className="cardActions">
         <div className="buttons">
-          <Button type="button" size="small">-</Button>
-          <Typography>{item.quantity}</Typography>
-          <Button type="button" size="small">+</Button>
+          <Typography variant="h5" className="itemCount"  style={{'text-align':'center'}}>Cantidad: {item.quantity} unidad(es)</Typography>
         </div>
-        <Button variant="contained" type="button" color="secondary" onClick={handleOnClick}>
-          Remover
-        </Button>
+        <div className="box-btn">
+          <Button className="btn-remove" variant="contained" type="button" color="secondary" size="large" onClick={handleOnClick}>
+            Remover
+          </Button>
+        </div>
       </CardActions>
     </Card>
   )

@@ -3,8 +3,9 @@ import { useParams } from 'react-router'
 import Spinner from '../Spinner/Spinner'
 import '../ItemListContainer/style.css'
 import ItemDetail from './ItemDetail'
-import { db } from '../Services/firebase'
-import { doc, getDoc } from '@firebase/firestore'
+import { getProductById } from '../../Services/firebase'
+import MarcaSponsors from '../Marcas/Marcas'
+import Footer from '../Footer/Footer'
 
 const ItemDetailContainer = () => {
     
@@ -15,16 +16,15 @@ const ItemDetailContainer = () => {
 
     useEffect(() => {
       setLoader(true)
-        getDoc(doc(db, 'productos' , itemId)).then((querySnapshot) => {
-            console.log({id: querySnapshot.id, ...querySnapshot.data()})
-            const product = { id: querySnapshot.id, ...querySnapshot.data()}
+        getProductById(itemId).then(product => {
             setProducts(product)
         }).catch((error) => {
-            console.log('Error searching intems', error)
+            console.log(error)
         }).finally(() => {
             setLoader(false)
         })
         return (() => {
+            setLoader(true)
             setProducts(undefined)
         })
     }, [itemId]);
@@ -35,9 +35,9 @@ const ItemDetailContainer = () => {
             <div className="spinner">
                 {Loader === true ? <Spinner/> : <ItemDetail  products={products}/>}
             </div>
+            <MarcaSponsors />
+            <Footer />
         </div>
-        
-
     )
 }
 

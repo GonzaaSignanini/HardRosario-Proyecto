@@ -1,25 +1,27 @@
 .cardProducts img {
     height: 300px;
     width: auto;
+    margin-top: 20px;
 }
 
 
 
 .titleProduct{
     font-size: 26px;
+    text-align: center;
 }
 
 .cardProducts{
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly !important;
     width: 505px;
 }
 
 .cardItemsProd {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly !important;
-    width: 400px !important;
+    justify-content: center;
+    width: 400px;
     padding-bottom: 18px;
     margin-top: 3%;
 }

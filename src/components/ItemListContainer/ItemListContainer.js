@@ -3,7 +3,9 @@ import {useState, useEffect} from 'react'
 import { useParams } from 'react-router'
 import Spinner from '../Spinner/Spinner'
 import './style.css'
-import { getProducts } from '../Services/firebase'
+import { getProducts } from '../../Services/firebase'
+import MarcaSponsors from '../Marcas/Marcas'
+import Footer from '../Footer/Footer'
 
 
 const ItemListContainer = ({setCartItem}) => {
@@ -20,7 +22,6 @@ const ItemListContainer = ({setCartItem}) => {
         }).finally(() => {
             setLoader(false)
         })
-
         return(() => {
             setLoader(true)
             setProducts([])
@@ -33,9 +34,10 @@ const ItemListContainer = ({setCartItem}) => {
             <div className="spinner">
                 {loader === true ? <Spinner/> : <ItemList  products={products} setCartItem={setCartItem}/>}
             </div>
-        </div>
-        
 
+            <MarcaSponsors />
+            <Footer />
+        </div>
     )
 }
 

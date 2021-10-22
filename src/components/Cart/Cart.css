@@ -3,5 +3,67 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    width: 300px;
+    width: 350px;
+    margin-top: 6%;
+    flex-wrap: wrap;
+    margin-left: 7%;
+}
+
+.MuiCardActions-root{
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 370px;
+    height: auto;
+}
+
+.MuiContainer-maxWidthLg {
+    max-width: 100% !important;
+    padding: 0 0 0 0 !important;
+}
+
+.box-btn {
+    padding-bottom: 15px;
+    margin-top: 5%;
+}
+
+.titleCart{
+    text-align: center;
+    margin-top: 3% !important;
+}
+
+.cardDetails{
+    text-align: center;
+}
+
+.emptyCart{
+    text-align: center;
+}
+
+.cardItems img {
+    margin-top: 10px;
+}
+
+.titleItem{
+    margin-top: 15px !important;
+    text-align: center;
+}
+
+.priceItem{
+    text-align: center;
+    margin-top: 20px !important;
+}
+
+.buttons {
+    width: 100%;
+    margin-top: -5%;
+
+}
+
+.itemCount {
+    font-size: 20px !important;
+    font-family: Verdana, Geneva, Tahoma, sans-serif !important;
+}
+
+.btn-remove {
+    margin-top: 7% !important;
 }

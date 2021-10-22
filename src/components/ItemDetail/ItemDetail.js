@@ -8,8 +8,8 @@ import {Card, CardContent} from '@material-ui/core'
 
 const ItemDetail = ({products}) => {
 
+    const [quantity, setQuantity] = useState(0)
     const [cart, setCart] = useState(true);
-    const [itemCount, setItemCount] = useState();
 
     const handleOnAdd = () => {
         setCart(false);
@@ -23,9 +23,11 @@ const ItemDetail = ({products}) => {
     
         return (
           <div>
-            <Button onClick={handleOnClick} variant="contained">
-              Volver
-            </Button>
+            <Link to="/productos" className="link">
+              <Button onClick={handleOnClick} variant="contained" color="primary">
+                Volver
+              </Button>
+            </Link>
             <Link to="/cart" className="link">
               <Button variant="contained" color="secondary">
                 Finalizar Compra
@@ -36,25 +38,38 @@ const ItemDetail = ({products}) => {
     };
 
     return(
+      <>
         <Card className="cardd">
           <CardContent className="cardd" > 
-            <img style={{'width':'auto', 'height':'270px'}} className="card-img-top imgProduct" src={products?.pictureUrl} alt={products?.alt}/>
+            <img className="card-img-top imgProduct" src={products?.pictureUrl} alt={products?.alt}/>
             <h1 className="card-title titleProduct">{products?.title}</h1>
             <p className="card-text priceDetail">$ {products?.price}</p>
             <p  className="card-text stockProduct">Stock disponible: {products?.stock}</p>
             {cart ? (
               <ItemCount
-                stock={5}
+                stock={products.stock}
                 item={products}
                 initial={0}
                 onAdd={handleOnAdd}
-                setItemCount={setItemCount}
+                setQuantity={setQuantity}
               />
             ) : (
               <FinalizarCompra />
             )}
         </CardContent>
-        </Card>         
+        </Card>   
+          <div className="info">
+              <p className="span">{products?.span1}</p>
+              <p  className="span">{products?.span2}</p>
+              <p  className="span">{products?.span3}</p>
+              <p  className="span">{products?.span4}</p>
+              <p  className="span">{products?.span5}</p>
+              <p  className="span">{products?.span6}</p>
+              <p  className="span">{products?.span7}</p>
+              <p  className="span">{products?.span8}</p>
+              <p  className="span">{products?.span9}</p>
+        </div>
+      </>
     )
 }
 

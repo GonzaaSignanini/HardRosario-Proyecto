@@ -1,0 +1,40 @@
+.container {
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+    top: 55px;
+    width: 1170px;
+}
+
+.cintaCarruselMarcas {
+    position: absolute;
+    height: 150px;
+    width: 0;
+    left: 0;
+}
+
+.cintaCarruselMarcas.izquierda {
+    animation: cambioMarcas 25s infinite;
+}
+
+
+
+.row{
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.itemMarca img {
+    width: 100%;
+}
+
+.itemMarca{
+    position: absolute;
+    width: 150px;
+}
+
+
+@keyframes cambioMarcas {
+    0% {left: 0;}
+    50%{left: -950px;} 
+}
