@@ -9,7 +9,8 @@ import Footer from '../Footer/Footer'
 
 
 const ItemListContainer = ({setCartItem}) => {
-    const {catId} = useParams() 
+    const {catId} = useParams()
+    const {subCatId} = useParams() 
     const [loader, setLoader] = useState(true);
     const [products, setProducts] = useState([]);
 
@@ -27,6 +28,21 @@ const ItemListContainer = ({setCartItem}) => {
             setProducts([])
         })
     }, [catId])
+
+    // useEffect(() => {
+    //     setLoader(true)
+    //     getProducts('subcategory', '==', subCatId).then(products => {
+    //         setProducts(products)
+    //     }).catch((error) => {
+    //         console.log(error)
+    //     }).finally(() => {
+    //         setLoader(false)
+    //     })
+    //     return(() => {
+    //         setLoader(true)
+    //         setProducts([])
+    //     })
+    // }, [subCatId])
 
     return (
 

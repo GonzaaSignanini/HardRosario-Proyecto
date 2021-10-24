@@ -38,6 +38,14 @@ ul.dropdown-menu{
     text-decoration: underline !important;
 }
 
+.linkSponsor {
+    text-decoration: none !important;
+    color: rgb(0, 0, 0) !important;
+    font-weight: 600;
+    font-size: 22px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
 .liEsp {
     padding-top: 8px;
 }

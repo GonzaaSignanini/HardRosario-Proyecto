@@ -3,7 +3,7 @@
 ### Hard Rosario es un e-commerce desarrollado en React Js con create-react-app y con mucho esfuerzo y sacrificio. Tiene secciones que permite al usuario filtrar segun lo que se desee, ya sea productos, equipos armados o hardware individual. 
 <br><br>
 
-
+## [Link al Sitio Web](https://gonzaasignanini.github.io/HardRosario-Proyecto/)
 ## Demostración del Sitio Web
 
 <img src="./Hard Rosario - Gif Compra.gif"/>
@@ -81,7 +81,7 @@ npm start
 
 ## Material UI Core/Icons
 
-#### Utilicé Material UI para que el e-commerce se vea lindo además de lo funcional hice uso de la librería `@material-ui/core`  y  `@material-ui/icons` pa>ra darle estilos a los botones, a los productos del carrito, etc.
+#### Utilicé Material UI para que el e-commerce se vea lindo además de lo funcional hice uso de la librería `@material-ui/core`  y  `@material-ui/icons` para darle estilos a los botones, a los productos del carrito, etc.
 
 <br>
 

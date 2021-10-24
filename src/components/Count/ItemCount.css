@@ -21,6 +21,11 @@
     margin-left: 2%;
 }
 
+.textStock {
+    text-align: center;
+    margin-top: 1% !important;
+}
+
 .btnSend{
     width: 200px;
     padding: 10px;

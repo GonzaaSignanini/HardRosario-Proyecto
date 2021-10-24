@@ -26,8 +26,7 @@ const NavBar = ({product}) => {
                 <li className="nav-item lista__item" id="02"><Link className="nav-link" to={`/productos`}>Productos</Link></li>
                 <li className="nav-item lista__item"><Link className="nav-link" to={`/category/equipos-armados`}>Equipos Armados</Link></li>
                 <li className="nav-item lista__item"><Link className="nav-link" to={`/category/hardware`}>Hardware</Link></li>
-                <li className="nav-item lista__item" id="04">
-                  <a className="linkSponsor" href="/inicio">Marcas Sponsor</a>
+                <li className="nav-item lista__item linkSponsor" id="04">Marcas Sponsor
                   <ul className="dropdown-menu">  
                     <li> 
                         <img src="https://compragamer.net/imagenes_marcas/imagen_marca_301_5_491.png" alt="img-marca"/>

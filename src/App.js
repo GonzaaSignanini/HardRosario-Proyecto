@@ -1,4 +1,4 @@
-import NavBar from './components/NavBar/NavBar';
+import NavBar from './components/NavBar/NavBar'
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import { BrowserRouter, Switch, Route} from 'react-router-dom';
 import ItemDetailContainer from './components/ItemDetail/ItemDetailContainer';
@@ -31,6 +31,10 @@ const App = ({product}) => {
               <Route path="/category/:catId">
                 <ItemListContainer />
               </Route>
+              {/* Para Filtrar por cada producto: Procesadores, mother, etc 
+              <Route path="/subcategory/:subCatId">
+                <ItemListContainer />
+              </Route>*/}
               <Route path="/checkout">
                 <Checkout />
               </Route>
