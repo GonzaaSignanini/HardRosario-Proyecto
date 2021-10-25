@@ -6,9 +6,11 @@ import CartView from './components/Cart/Cart';
 import { CartContextProvider } from './context/CartContext';
 import Home from './components/Home/Home';
 import Checkout from './components/Checkout/Checkout/Checkout';
-
+import { useState } from 'react';
 
 const App = ({product}) => {
+
+  const [productsFilter, setProductsFilter] = useState([])
 
   return (
     
@@ -16,25 +18,21 @@ const App = ({product}) => {
         <CartContextProvider>
           <BrowserRouter>
             <header className="App-header">
-              <NavBar products={product} />
+              <NavBar setProductsFilter={setProductsFilter} products={product} />
             </header>
             <Switch>
-              <Route exact path="/inicio">
+              <Route path="/inicio">
                 <Home />
               </Route>
               <Route path="/productos">
-                <ItemListContainer/>
+                <ItemListContainer productsFilter={productsFilter}/>
               </Route>
               <Route exact path="/producto/:catId/:itemId">
                 <ItemDetailContainer />
               </Route>
               <Route path="/category/:catId">
-                <ItemListContainer />
+                <ItemListContainer productsFilter={productsFilter}/>
               </Route>
-              {/* Para Filtrar por cada producto: Procesadores, mother, etc 
-              <Route path="/subcategory/:subCatId">
-                <ItemListContainer />
-              </Route>*/}
               <Route path="/checkout">
                 <Checkout />
               </Route>

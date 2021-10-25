@@ -8,9 +8,8 @@ import MarcaSponsors from '../Marcas/Marcas'
 import Footer from '../Footer/Footer'
 
 
-const ItemListContainer = ({setCartItem}) => {
+const ItemListContainer = ({setCartItem, productsFilter}) => {
     const {catId} = useParams()
-    const {subCatId} = useParams() 
     const [loader, setLoader] = useState(true);
     const [products, setProducts] = useState([]);
 
@@ -27,30 +26,14 @@ const ItemListContainer = ({setCartItem}) => {
             setLoader(true)
             setProducts([])
         })
-    }, [catId])
-
-    // useEffect(() => {
-    //     setLoader(true)
-    //     getProducts('subcategory', '==', subCatId).then(products => {
-    //         setProducts(products)
-    //     }).catch((error) => {
-    //         console.log(error)
-    //     }).finally(() => {
-    //         setLoader(false)
-    //     })
-    //     return(() => {
-    //         setLoader(true)
-    //         setProducts([])
-    //     })
-    // }, [subCatId])
+    }, [catId])  
 
     return (
 
         <div className="List">
             <div className="spinner">
-                {loader === true ? <Spinner/> : <ItemList  products={products} setCartItem={setCartItem}/>}
+                {loader === true ? <Spinner/> : <ItemList productsFilter={productsFilter} products={products} setCartItem={setCartItem}/>}
             </div>
-
             <MarcaSponsors />
             <Footer />
         </div>

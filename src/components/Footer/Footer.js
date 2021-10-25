@@ -1,7 +1,22 @@
 import './footer.css'
 import { Link } from 'react-router-dom'
+import { useEffect, useState} from 'react'
+import { getCategories } from '../../Services/firebase'
 
 const Footer = () => {
+
+    const [categories, setCategories] = useState()
+
+    useEffect(() => {
+        getCategories().then(categories => {
+            setCategories(categories)
+        }).catch((error) => {
+            console.log(error)
+        })
+        return () => {
+            setCategories()
+        }
+    }, [])
 
     return (
 
@@ -12,18 +27,11 @@ const Footer = () => {
                                 <div className="col-foot">
                                     <h4 className="footer-title font-body text-uppercase">Navegación</h4>
                                     <ul>
-                                        <li className="wrap-list-xs">
-                                            <Link to="/inicio">Inicio</Link>
-	                                    </li>
-                                        <li className="wrap-list-xs">
-                                            <Link to="/productos">Productos</Link>
-                                        </li>
-                                        <li className="wrap-list-xs">
-                                            <Link to="/category/equipos-armados">Equipos Armados</Link>
-                                        </li>
-                                        <li className="wrap-list-xs">
-                                            <Link to="/category/hardware">Hardware</Link>
-                                        </li>
+                                        {categories?.map(category => 
+                                            <li className="wrap-list-xs" key={category.id}>
+                                                <Link key={category.id} to={`/category/${category.name}`} className='Option'>{category.description}</Link>
+                                            </li>
+                                        )}
                                     </ul>
                                 </div>
                             </div>

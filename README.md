@@ -3,7 +3,7 @@
 ### Hard Rosario es un e-commerce desarrollado en React Js con create-react-app y con mucho esfuerzo y sacrificio. Tiene secciones que permite al usuario filtrar segun lo que se desee, ya sea productos, equipos armados o hardware individual. 
 <br><br>
 
-## [Link al Sitio Web](https://gonzaasignanini.github.io/HardRosario-Proyecto/)
+## [Link al Sitio Web](https://hard-rosario-proyecto.vercel.app/)
 ## Demostración del Sitio Web
 
 <img src="./Hard Rosario - Gif Compra.gif"/>
@@ -16,7 +16,7 @@
 * Firebase
 * Estilos de Material UI (Core & Icons)
 * Context
-* Github Pages para React
+* Vercel 
 
 <br><br>
 
@@ -88,3 +88,9 @@ npm start
 ## Bootstrap
 
 #### Utilicé bootstrap para que el `Navbar` sea responsive además del menú hamburguesa, para el `Carousel` del componente `Home` y por último lo usé para las `Cards` de cada producto.
+
+<br>
+
+# Autor
+
+Gonzalo Signanini - Curso de ReactJs - CoderHouse 2021.

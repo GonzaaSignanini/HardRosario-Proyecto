@@ -3,16 +3,32 @@ import logoH from '../../assets/HardLogo.png'
 import CartWidget from '../CartWidget/CartWidget'
 import {Link} from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import { getCategories } from '../../Services/firebase'
+import { useEffect, useState } from 'react'
 
-const NavBar = ({product}) => {
+const NavBar = ({product, setProductsFilter}) => {
+
+    const [categories, setCategories] = useState()
+
+
+    useEffect(() => {
+      getCategories().then(categories => {
+          setCategories(categories)
+      }).catch((error) => {
+          console.log(error)
+      })
+      return () => {
+          setCategories()
+      }
+    }, [])
 
     return (
 
         <>
 
         <div className="divLogo">
-            <img src={logoH} className="logo" alt="logo-tienda"/>
-          <CartWidget product={product}/>
+            <Link to="/inicio"><img src={logoH} className="logo" alt="logo-tienda"/></Link>
+          <CartWidget setProductsFilter={setProductsFilter} product={product}/>
         </div>
 
         <nav className="navbar navbar-light navbar-expand-lg navMenu">
@@ -22,11 +38,18 @@ const NavBar = ({product}) => {
           </button>
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav lista">
-                <li className="nav-item lista__item" id="01"><Link className="nav-link" to={`/inicio`}>Inicio</Link></li>
-                <li className="nav-item lista__item" id="02"><Link className="nav-link" to={`/productos`}>Productos</Link></li>
-                <li className="nav-item lista__item"><Link className="nav-link" to={`/category/equipos-armados`}>Equipos Armados</Link></li>
-                <li className="nav-item lista__item"><Link className="nav-link" to={`/category/hardware`}>Hardware</Link></li>
-                <li className="nav-item lista__item linkSponsor" id="04">Marcas Sponsor
+                  <li className="nav-item lista__item linkSponsor">
+                    <Link to={`/inicio`} className='Option'>Inicio</Link>
+                  </li>
+                  <li className="nav-item lista__item linkSponsor">
+                    <Link to={`/productos`} className='Option'>Productos</Link>
+                  </li>
+                {categories?.map(category => 
+                  <li className="nav-item lista__item linkSponsor" key={category.id}>
+                    <Link key={category.id} to={`/category/${category.name}`} className='Option'>{category.description}</Link>
+                  </li>
+                )}
+                <li className="nav-item lista__item linkSponsor">Marcas Sponsor
                   <ul className="dropdown-menu">  
                     <li> 
                         <img src="https://compragamer.net/imagenes_marcas/imagen_marca_301_5_491.png" alt="img-marca"/>

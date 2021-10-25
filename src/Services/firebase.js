@@ -96,4 +96,29 @@ export const getUserId = (objOrder) => {
           reject("Error al obtener user id", error);
         });
     });
-  };
+};
+
+
+export const searchProducts = (searchValue, products, setProductsFilter) => {
+    let productsFilter = products.filter( product => {
+        return (
+            product.title.toLowerCase().includes(searchValue.toLowerCase())
+        )
+    })
+    console.log(productsFilter)
+    setProductsFilter(productsFilter)
+}
+
+
+export const getCategories = () => {
+    return new Promise((resolve, reject) => {
+        getDocs(collection(db, 'categories')).then((querySnapshot) => {
+            const categories = querySnapshot.docs.map(doc => {
+                return { id: doc.id, ...doc.data() }
+            }) 
+            resolve(categories)
+        }).catch((error) => {
+            reject(`Error obteniendo categorias: ${error}`)
+        })
+    }) 
+}
