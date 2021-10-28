@@ -27,6 +27,12 @@ const Footer = () => {
                                 <div className="col-foot">
                                     <h4 className="footer-title font-body text-uppercase">Navegación</h4>
                                     <ul>
+                                        <li className="wrap-list-xs">
+                                            <Link to={`/inicio`} className='Option'>Inicio</Link>
+                                        </li>
+                                        <li className="wrap-list-xs">
+                                            <Link to={`/productos`} className='Option'>Productos</Link>
+                                        </li>
                                         {categories?.map(category => 
                                             <li className="wrap-list-xs" key={category.id}>
                                                 <Link key={category.id} to={`/category/${category.name}`} className='Option'>{category.description}</Link>
