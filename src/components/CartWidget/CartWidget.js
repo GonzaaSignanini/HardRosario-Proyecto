@@ -13,10 +13,10 @@ const CartWidget = ({setProductsFilter}) => {
         <div className="divCarrito">
             <Search setProductsFilter={setProductsFilter}/>
             <div className="cart"> 
-            <Link className="linkCart" to={`/cart`}>
-                <i className="cart fas fa-shopping-cart"></i>
-            </Link> 
-            {getQuantity() > 0 && <h1 className="number fas">{getQuantity()}</h1>}
+                <Link className="linkCart" to={`/cart`}>
+                    <i className="cartIcon fas fa-shopping-cart"></i>
+                </Link> 
+                {getQuantity() > 0 && <h1 className="number fas">{getQuantity()}</h1>}
             </div>
         </div>
     )

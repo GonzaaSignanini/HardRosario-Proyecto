@@ -15,7 +15,7 @@ const Search = ({setProductsFilter}) => {
         getProducts().then(product => {
             setProducts(product)
         })
-    })
+    }, [])
 
     return (
         <>

@@ -28,6 +28,8 @@ const ItemListContainer = ({setCartItem, productsFilter}) => {
         })
     }, [catId])  
 
+
+
     return (
 
         <div className="List">

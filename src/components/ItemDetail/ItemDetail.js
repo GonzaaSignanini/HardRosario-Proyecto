@@ -52,6 +52,7 @@ const ItemDetail = ({products}) => {
                 initial={0}
                 onAdd={handleOnAdd}
                 setQuantity={setQuantity}
+                quantity={quantity}
               />
             ) : (
               <FinalizarCompra />

@@ -105,7 +105,6 @@ export const searchProducts = (searchValue, products, setProductsFilter) => {
             product.title.toLowerCase().includes(searchValue.toLowerCase())
         )
     })
-    console.log(productsFilter)
     setProductsFilter(productsFilter)
 }
 

@@ -32,27 +32,39 @@
     display: flex;
     justify-content: space-evenly;
     width: 80px;
-    align-items: center;
+    align-items: baseline;
+}
+
+a.linkCart {
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    border-radius: 60%;
 }
 
 .number {
     margin-top: 10%;
     margin-left: -13%;
-    background-color: lightgreen;
+    background-color: #2ecc71;
     border-radius: 70%;
-    width: 20px;
+    width: 25px;
     height: 26px;
     font-size: 25px;
     text-align: center;
 }
 
-.cart:hover {
-    color: rgb(85, 83, 83);
-    transition: 0.5s all ;
+a.linkCart:hover {
+    background-color: rgb(204, 201, 201);
+    transition: 1s all ease-in;
+    border-radius: 60%;
 }
 
+.cartIcon {
+    text-align: center;
+    margin-top: 10px;
+}
 
-@media only screen and (max-width:"800px") {
+@media only screen and (max-width: 800px) {
     .divCarrito{
         align-items: center;
         justify-content: flex-start;
